@@ -2,8 +2,8 @@
 #include <WiFiClient.h>
 #include <stdlib.h>
 
-const char* ssid = "ZiggoC6C6A6C";
-const char* password = "3YjjjrzteyFk";
+const char* ssid = "";
+const char* password = "";
 //const char* ssid = "AndroidAP_63";
 //const char* password = "00000000";
 
