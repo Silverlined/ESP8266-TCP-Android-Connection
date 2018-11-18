@@ -2,14 +2,15 @@
 #include <WiFiClient.h>
 #include <stdlib.h>
 
-const char* ssid = "";
-const char* password = "";
+const char* ssid = "ZiggoC6C6A6C";
+const char* password = "3YjjjrzteyFk";
 //const char* ssid = "AndroidAP_63";
 //const char* password = "00000000";
 
 // Create a TCP Server on port 8085
 WiFiServer server(5045);
 WiFiClient client;
+WiFiClient connectedClient;
 
 unsigned long previousMillis = 0;
 
@@ -39,8 +40,6 @@ void loop() {
   if (client) {
     while (client.connected()) {
       Serial.println("Connected to client");
-      client.write(itoa(sensorValue, buf, 10));
-      client.write("\n");                           //new line marks the end of this reading
       //    if (client.available() > 0) {
       //      // Read incoming message
       //      char inChar = client.read();
@@ -51,9 +50,12 @@ void loop() {
       if (millis() - previousMillis > 3000) {
         sensorValue = analogRead(A0);
         previousMillis = millis();
+        client.write(itoa(sensorValue, buf, 10));
+        client.write("\n");                           //new line marks the end of this reading
       }
       delay(1500);
     }
   }
 }
+
 
